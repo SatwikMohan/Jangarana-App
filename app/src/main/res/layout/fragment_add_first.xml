@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".fragments.AddFirstFragment">
 
@@ -12,5 +13,10 @@
         android:layout_height="wrap_content"
         android:textColor="@color/color_primary"
         android:text="Form Fragment 1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_add_family_member_button"/>
 
 </FrameLayout>
