@@ -44,7 +44,7 @@
         android:hint="Staff User ID"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:paddingLeft="10dp"
         android:textColor="@color/fill_text"
         android:textColorHint="@color/field_text"
@@ -53,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="2.5dp"
         android:layout_marginStart="40dp"
@@ -61,28 +62,28 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staffID"/>
+        app:layout_constraintTop_toBottomOf="@+id/staffID" />
 
     <EditText
         android:id="@+id/staffPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginEnd="90dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:layout_marginTop="16dp"
         android:paddingLeft="10dp"
         android:textColor="@color/fill_text"
         android:textColorHint="@color/field_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/staffID"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/staffID" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="2.5dp"
         android:layout_marginStart="40dp"
@@ -91,7 +92,17 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staffPassword"/>
+        app:layout_constraintTop_toBottomOf="@+id/staffPassword" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/staff_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/ic_staff_login_button"
+        app:layout_constraintEnd_toEndOf="@+id/staffPassword"
+        app:layout_constraintStart_toStartOf="@+id/staffPassword"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <ImageView
         android:id="@+id/imageView5"
