@@ -46,8 +46,8 @@ public class SignupViewModel extends ViewModel {
         return user;
     }
 
-    public void verifyUser(FamilyHeadSignup user, Context context) {
-        repo.VerifyUser(user, context);
+    public void verifyUser(FamilyHeadSignup otpObject, Context context) {
+        repo.VerifyUser(otpObject, context);
     }
 
 }

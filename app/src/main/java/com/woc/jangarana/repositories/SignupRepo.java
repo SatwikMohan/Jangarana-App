@@ -66,10 +66,10 @@ public class SignupRepo {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void VerifyUser(FamilyHeadSignup user, Context context) {
+    public void VerifyUser(FamilyHeadSignup otpObject, Context context) {
         Map<String, String> params = new HashMap<>();
-        params.put("token", user.getToken());
-        params.put("otp", user.getOtp());
+        params.put("token", otpObject.getToken());
+        params.put("otp", otpObject.getOtp());
         String url = "https://jangrana.herokuapp.com/api/auth/verify_email";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,
                 new JSONObject(params), new Response.Listener<JSONObject>() {
