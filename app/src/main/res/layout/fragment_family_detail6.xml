@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".fragments.familyDetail3Fragment">
+    tools:context=".fragments.familyDetail6Fragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -49,10 +49,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="45dp"
                 android:fontFamily="@font/dm_mono"
-                android:text="Number of Surviving children"
+                android:text="Number of married couple(s) in the household"
                 android:textColor="@color/color_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +60,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout16"
+                android:id="@+id/textInputLayout33"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/gradient_primary"
-                android:hint="Number of Daughters"
+                android:hint="Number of Persons"
                 android:padding="1dp"
                 android:textColorHint="@color/field_text"
                 app:circularflow_defaultRadius="4dp"
@@ -76,38 +76,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView17">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/noOfDaughters"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:textColor="@color/fill_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10"
-                    tools:ignore="MissingConstraints">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout22"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/gradient_primary"
-                android:hint="Number of Sons"
-                android:padding="1dp"
-                android:textColorHint="@color/field_text"
-                app:circularflow_defaultRadius="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/noOfsons"
+                    android:id="@+id/marridCouples"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -122,38 +91,37 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/textView24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="45dp"
                 android:fontFamily="@font/dm_mono"
-                android:text="Number of children ever born alive"
+                android:text="Main Source of drinking water"
                 android:textColor="@color/color_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout22" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout33" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout23"
+                android:id="@+id/textInputLayout34"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/gradient_primary"
-                android:hint="Number of Daughters"
                 android:padding="1dp"
                 android:textColorHint="@color/field_text"
                 app:circularflow_defaultRadius="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18">
+                app:layout_constraintTop_toBottomOf="@+id/textView24">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/noOfDaughtersborn"
+                    android:id="@+id/sourceOfWater"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -167,101 +135,49 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout24"
+            <Spinner
+                android:id="@+id/spinner3"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:background="@drawable/gradient_primary"
-                android:hint="Number of Sons"
-                android:padding="1dp"
-                android:textColorHint="@color/field_text"
-                app:circularflow_defaultRadius="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout23">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/noOfsonsborn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:textColor="@color/fill_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10"
-                    tools:ignore="MissingConstraints">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout34" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="45dp"
                 android:fontFamily="@font/dm_mono"
-                android:text="Number of children born alive during last one year"
+                android:text="Main Source of Lighting"
                 android:textColor="@color/color_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout24" />
+                app:layout_constraintTop_toBottomOf="@+id/spinner3" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout25"
+                android:id="@+id/textInputLayout35"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/gradient_primary"
-                android:hint="Number of Daughters"
                 android:padding="1dp"
                 android:textColorHint="@color/field_text"
                 app:circularflow_defaultRadius="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19">
+                app:layout_constraintTop_toBottomOf="@+id/textView25">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/noOfDaughtersbornlastYear"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:textColor="@color/fill_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10"
-                    tools:ignore="MissingConstraints">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout26"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/gradient_primary"
-                android:hint="Number of Sons"
-                android:padding="1dp"
-                android:textColorHint="@color/field_text"
-                app:circularflow_defaultRadius="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout25">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/noOfsonsbornlastYear"
+                    android:id="@+id/sourceOfLight"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -279,19 +195,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/ic_clear_all_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout26" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout35" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginRight="40dp"
                 android:background="@drawable/ic_next_button"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout26" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout35" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
