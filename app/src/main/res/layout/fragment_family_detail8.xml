@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".fragments.familyDetail7Fragment">
+    tools:context=".fragments.familyDetail8Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:text="Do the household have access to latrine?"
+            android:text="Do the household have a Kitchen?"
             android:textColor="@color/color_primary"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <CheckBox
-            android:id="@+id/latrineYES"
+            android:id="@+id/kitchenYES"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -67,7 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <CheckBox
-            android:id="@+id/latrineNO"
+            android:id="@+id/kitchenNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -75,19 +75,8 @@
             android:text="NO"
             android:textColor="@color/color_primary"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/latrineYES"
+            app:layout_constraintStart_toEndOf="@+id/kitchenYES"
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-        <Spinner
-            android:id="@+id/typeOfLatrine"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/latrineNO" />
 
         <TextView
             android:id="@+id/textView16"
@@ -96,15 +85,15 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Do the household have bathing facility?"
+            android:text="Do the kitchen have LPG/PNG connection?"
             android:textColor="@color/color_primary"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeOfLatrine" />
+            app:layout_constraintTop_toBottomOf="@+id/kitchenNO" />
 
         <CheckBox
-            android:id="@+id/bathingYES"
+            android:id="@+id/lpgYES"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -116,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
         <CheckBox
-            android:id="@+id/bathingNO"
+            android:id="@+id/lpgNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -124,19 +113,99 @@
             android:text="NO"
             android:textColor="@color/color_primary"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/bathingYES"
+            app:layout_constraintStart_toEndOf="@+id/lpgYES"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-        <Spinner
-            android:id="@+id/wasteWaterOutlet"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="45dp"
+            android:fontFamily="@font/dm_mono"
+            android:text="Main Fuel used for cooking"
+            android:textColor="@color/color_primary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lpgNO" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout34"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
+            android:background="@drawable/gradient_primary"
+            android:padding="1dp"
+            android:textColorHint="@color/field_text"
+            app:circularflow_defaultRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bathingNO" />
+            app:layout_constraintTop_toBottomOf="@+id/textView24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mainFuel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:textColor="@color/fill_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:ignore="MissingConstraints">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="45dp"
+            android:fontFamily="@font/dm_mono"
+            android:text="Main cereal consumed in the household"
+            android:textColor="@color/color_primary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout34" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout35"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/gradient_primary"
+            android:padding="1dp"
+            android:textColorHint="@color/field_text"
+            app:circularflow_defaultRadius="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mailcereal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:textColor="@color/fill_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:ignore="MissingConstraints">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
@@ -155,7 +224,6 @@
             android:background="@drawable/ic_next_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

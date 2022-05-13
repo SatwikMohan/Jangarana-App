@@ -37,7 +37,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:gravity="center_horizontal"
-                android:text="Fertility Particulars"
+                android:text="Fill your Household details here"
                 android:textColor="#99000000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
