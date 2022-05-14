@@ -57,7 +57,9 @@ public class UserDetail1Fragment extends Fragment {
 //                detailsModel.setMohalla(binding.adressLine1.getText().toString()+","+binding.adressLine2.getText().toString());
                 detailsModel.setMohalla("Holi Pura");
                 detailsModel.setCity("Datia");
+                detailsModel.setDistrict("Datia");
                 detailsModel.setState("Madhya Pradesh");
+                detailsModel.setCountry("india");
 //                detailsModel.setZipcode(binding.zipCode.getText().toString());
                 detailsModel.setZipcode("475661");
                 personDetailViewModel.personDetails.postValue(detailsModel);
