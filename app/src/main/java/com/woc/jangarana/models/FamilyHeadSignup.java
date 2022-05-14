@@ -28,6 +28,7 @@ public class FamilyHeadSignup {
         this.password = password;
     }
 
+
     public String getToken() {
         return token;
     }
