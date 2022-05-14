@@ -1,6 +1,7 @@
 package com.woc.jangarana.familyhead;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,10 +10,13 @@ import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.ActivityDashboardBinding;
 import com.woc.jangarana.fragments.AddFirstFragment;
 import com.woc.jangarana.fragments.UserProfileFragment;
+import com.woc.jangarana.viewmodels.PersonDetailViewModel;
 
 public class DashboardActivity extends AppCompatActivity {
 
     ActivityDashboardBinding binding;
+
+    PersonDetailViewModel personDetailViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,11 @@ public class DashboardActivity extends AppCompatActivity {
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        personDetailViewModel = new ViewModelProvider(this).get(PersonDetailViewModel.class);
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.flFragment,
-                        new AddFirstFragment())
+                        new AddFirstFragment(DashboardActivity.this, personDetailViewModel))
                 .commit();
 
         binding.bottomNavForm.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
                 binding.bottomNavProfile.setCardBackgroundColor(getResources().getColor(R.color.white));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
-                                new AddFirstFragment())
+                                new AddFirstFragment(DashboardActivity.this, personDetailViewModel))
                         .commit();
             }
         });
@@ -52,6 +58,8 @@ public class DashboardActivity extends AppCompatActivity {
                         .commit();
             }
         });
+
+
 
 
 
