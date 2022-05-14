@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.woc.jangarana.models.FClusterAuthentication;
 import com.woc.jangarana.models.FamilyHeadSignup;
 import com.woc.jangarana.repositories.SignupRepo;
 
@@ -12,6 +13,7 @@ public class SignupViewModel extends ViewModel {
     public MutableLiveData<String> message;
     public MutableLiveData<String> token;
     private MutableLiveData<FamilyHeadSignup> user;
+    private MutableLiveData<FClusterAuthentication> fCluster;
     public SignupRepo repo;
 
     public SignupViewModel() {
@@ -44,6 +46,11 @@ public class SignupViewModel extends ViewModel {
     public MutableLiveData<FamilyHeadSignup> getUserObserver() {
         user = repo.getUser();
         return user;
+    }
+
+    public MutableLiveData<FClusterAuthentication> getFClusterObserver() {
+        fCluster = repo.getFClusterAuthentication();
+        return fCluster;
     }
 
     public void verifyUser(FamilyHeadSignup otpObject, Context context) {

@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.woc.jangarana.models.FClusterAuthentication;
 import com.woc.jangarana.models.FamilyHeadSignup;
 
 import org.json.JSONException;
@@ -27,7 +28,9 @@ public class SignupRepo {
     private final MutableLiveData<String> message = new MutableLiveData<>();
     private final MutableLiveData<String> token = new MutableLiveData<>();
     private final MutableLiveData<FamilyHeadSignup> user = new MutableLiveData<>();
+    private final MutableLiveData<FClusterAuthentication> fCluster = new MutableLiveData<>();
     RequestQueue requestQueue;
+    RequestQueue requestQueue2;  
     Boolean isRegister = false;
 
 
@@ -70,21 +73,33 @@ public class SignupRepo {
         Map<String, String> params = new HashMap<>();
         params.put("token", otpObject.getToken());
         params.put("otp", otpObject.getOtp());
-        String url = "https://jangrana.herokuapp.com/api/auth/verify_email";
+        String url = "https://jangarana.herokuapp.com/api/auth/verify_email";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,
                 new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d("OTP Repo", response.toString());
+
+                try {
+                    FClusterAuthentication cluster = new FClusterAuthentication(response.getString("token"),
+                            response.getJSONObject("user").getString("_id"),
+                            response.getJSONObject("user").getString("email"),
+                            response.getJSONObject("user").getString("name"));
+                    fCluster.postValue(cluster);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("error", error.toString());
+                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-        requestQueue = Volley.newRequestQueue(context);
-        requestQueue.add(jsonObjectRequest);
+        requestQueue2 = Volley.newRequestQueue(context);
+        requestQueue2.add(jsonObjectRequest);
     }
 
     public MutableLiveData<String> getMessage() {
@@ -95,6 +110,9 @@ public class SignupRepo {
         return user;
     }
 
+    public MutableLiveData<FClusterAuthentication> getFClusterAuthentication() {
+        return fCluster;
+    }
 
     public MutableLiveData<String> getToken() {
         return token;
