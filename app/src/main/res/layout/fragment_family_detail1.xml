@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/checkYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -67,7 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <CheckBox
-            android:id="@+id/checkBox6"
+            android:id="@+id/checkNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -75,7 +75,7 @@
             android:text="NO"
             android:textColor="@color/color_primary"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/checkBox5"
+            app:layout_constraintStart_toEndOf="@+id/checkYes"
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -92,7 +92,7 @@
             app:circularflow_defaultRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox6">
+            app:layout_constraintTop_toBottomOf="@+id/checkNo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lastResidenceContry"
@@ -138,7 +138,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView16">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/noOfDaughters"
+                android:id="@+id/lastResidenceCity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
@@ -195,6 +195,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/clearAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_clear_all_button"
@@ -204,6 +205,7 @@
             android:layout_marginTop="50dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
