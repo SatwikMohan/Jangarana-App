@@ -5,7 +5,7 @@ public class Person {
     String id,name,gender,dob,mohalla,city,district,zipcode,state,country,religion;
     String motherTongue,otherTongue,disableDOcLink,caste,casteDocLink,highestEduLevel;
     String occupation,industry,_class,modeOfTravel;
-    Boolean maritalStatus,isDisabled,isLiterate,workedLastYear,LookingForWork_bool;
+    Boolean maritalStatus,isDisabled,isLiterate,workedLastYear,lookingForWork;
     int ageMarried,oneWayDisToWork;
 
     public Person() {
@@ -211,12 +211,12 @@ public class Person {
         this.workedLastYear = workedLastYear;
     }
 
-    public Boolean getLookingForWork_bool() {
-        return LookingForWork_bool;
+    public Boolean getLookingForWork() {
+        return lookingForWork;
     }
 
-    public void setLookingForWork_bool(Boolean lookingForWork_bool) {
-        LookingForWork_bool = lookingForWork_bool;
+    public void setLookingForWork(Boolean lookingForWork) {
+        this.lookingForWork = lookingForWork;
     }
 
     public int getAgeMarried() {

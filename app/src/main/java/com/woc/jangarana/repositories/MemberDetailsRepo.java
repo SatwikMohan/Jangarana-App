@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -14,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.woc.jangarana.models.Person;
 
 import org.json.JSONException;
@@ -29,6 +31,7 @@ public class MemberDetailsRepo {
     RequestQueue requestQueue;
     RequestQueue requestQueue2;
     ProgressDialog progressDialog;
+    JSONObject json;
 
     public static MemberDetailsRepo getInstance() {
         return instance;
@@ -36,24 +39,34 @@ public class MemberDetailsRepo {
 
     public void detailscreate(Person model, Context context) {
         progressDialog=new ProgressDialog(context);
-        progressDialog.setMessage("Updating Your Profile . Please Wait");
+        progressDialog.setMessage("Uploading data. Please Wait");
         progressDialog.show();
 
-        Map<String, String> params = new HashMap<>();
+
+        Gson gson = new Gson();
+        String params = gson.toJson(model);
 
 
-        Log.d("params", String.valueOf(params));
+        try {
+             json = new JSONObject(params);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(context, "Error Please try after sometime.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         String url = "https://jangarana.herokuapp.com/api/form/create";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,
-                new JSONObject(params), new com.android.volley.Response.Listener<JSONObject>() {
+                json, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("response", response.toString());
+                progressDialog.dismiss();
                 try {
-//                    Toast.makeText(context, response.get("message").toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, response.get("message").toString(), Toast.LENGTH_SHORT).show();
                     message.postValue(response.get("message").toString());
                 } catch (JSONException e) {
+                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
@@ -61,14 +74,15 @@ public class MemberDetailsRepo {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(context, error.getLocalizedMessage()+"",  Toast.LENGTH_SHORT).show();
                 Log.d("error", error.toString());
             }
         }){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                SharedPreferences sharedPreferences= context.getSharedPreferences("All Details",Context.MODE_PRIVATE);
-                String tomken=sharedPreferences.getString("token","");
-//                Log.d("token",tomken);
+                SharedPreferences sharedPreferences= context.getSharedPreferences("Head SignUp",Context.MODE_PRIVATE);
+                String tomken=sharedPreferences.getString("family_head_token","");
                 Map<String, String> map = new HashMap<>();
                 map.put("Authorization", "Bearer "+tomken);
                 return map;

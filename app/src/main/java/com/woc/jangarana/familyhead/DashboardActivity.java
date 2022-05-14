@@ -3,6 +3,7 @@ package com.woc.jangarana.familyhead;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -10,12 +11,15 @@ import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.ActivityDashboardBinding;
 import com.woc.jangarana.fragments.AddFirstFragment;
 import com.woc.jangarana.fragments.UserProfileFragment;
+import com.woc.jangarana.models.Person;
 import com.woc.jangarana.viewmodels.PersonDetailViewModel;
+import com.woc.jangarana.viewmodels.SignupViewModel;
 
 public class DashboardActivity extends AppCompatActivity {
 
     ActivityDashboardBinding binding;
 
+    SignupViewModel signupViewModel;
     PersonDetailViewModel personDetailViewModel;
 
     @Override
@@ -25,6 +29,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         personDetailViewModel = new ViewModelProvider(this).get(PersonDetailViewModel.class);
+        signupViewModel = new ViewModelProvider(this).get(SignupViewModel.class);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.flFragment,

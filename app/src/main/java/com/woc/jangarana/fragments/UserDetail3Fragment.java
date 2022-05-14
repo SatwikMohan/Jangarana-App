@@ -51,6 +51,15 @@ public class UserDetail3Fragment extends Fragment {
         binding.nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                detailsModel.setCaste("baniya");
+                detailsModel.setCasteDocLink("link");
+                detailsModel.setHighestEduLevel("undergraduate");
+                detailsModel.setOccupation("engineer");
+                detailsModel.setIndustry("primary");
+                detailsModel.set_class("junior");
+
+                personDetailViewModel.personDetails.postValue(detailsModel);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
                                 new UserDetail4Fragment(context, personDetailViewModel))

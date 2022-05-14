@@ -1,6 +1,9 @@
 package com.woc.jangarana.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +15,7 @@ import android.view.ViewGroup;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentAddFirstBinding;
 import com.woc.jangarana.familyhead.DashboardActivity;
+import com.woc.jangarana.models.Person;
 import com.woc.jangarana.viewmodels.PersonDetailViewModel;
 
 
@@ -20,6 +24,9 @@ public class AddFirstFragment extends Fragment {
 
     Context context;
     PersonDetailViewModel personDetailViewModel;
+
+    SharedPreferences sharedPreferences;
+    Person person;
 
     FragmentAddFirstBinding binding;
 
@@ -50,6 +57,12 @@ public class AddFirstFragment extends Fragment {
         binding.familyHeadCensusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                sharedPreferences = getActivity().getSharedPreferences("Head SignUp", MODE_PRIVATE);
+                person = new Person();
+                person.setId(sharedPreferences.getString("family_head_token" , ""));
+                personDetailViewModel.personDetails.postValue(person);
+
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
                                 new UserDetail1Fragment(context, personDetailViewModel))

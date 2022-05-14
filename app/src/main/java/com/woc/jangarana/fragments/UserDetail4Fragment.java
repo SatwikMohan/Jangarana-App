@@ -10,15 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.woc.jangarana.R;
-import com.woc.jangarana.databinding.FragmentFamilyDetail1Binding;
-import com.woc.jangarana.databinding.FragmentUserDetail1Binding;
-import com.woc.jangarana.databinding.FragmentUserDetail2Binding;
 import com.woc.jangarana.databinding.FragmentUserDetail4Binding;
 import com.woc.jangarana.models.Person;
 import com.woc.jangarana.viewmodels.PersonDetailViewModel;
-
-import java.util.Objects;
 
 
 public class UserDetail4Fragment extends Fragment {
@@ -51,9 +45,14 @@ public class UserDetail4Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentUserDetail4Binding.inflate(inflater, container, false);
-        binding.nextButton.setOnClickListener(new View.OnClickListener() {
+        binding.submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                detailsModel.setWorkedLastYear(true);
+                detailsModel.setLookingForWork(true);
+                detailsModel.setOneWayDisToWork(20);
+                detailsModel.setModeOfTravel("bike");
+
                 personDetailViewModel.createdetails(detailsModel, context);
             }
         });

@@ -20,6 +20,7 @@ public class PersonDetailViewModel extends ViewModel {
         repo= MemberDetailsRepo.getInstance();
         message=new MutableLiveData<>();
         personDetails=new MutableLiveData<>();
+        personDetails.postValue(new Person());
     }
     public MutableLiveData<String> getMessageUserObserver(){
         message=repo.getMessage();

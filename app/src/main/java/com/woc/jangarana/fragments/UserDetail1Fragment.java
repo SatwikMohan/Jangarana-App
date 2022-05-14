@@ -45,6 +45,7 @@ public class UserDetail1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         binding = FragmentUserDetail1Binding.inflate(inflater, container, false);
         binding.nextButtondeatil1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,10 @@ public class UserDetail1Fragment extends Fragment {
                 detailsModel.setName(binding.firstName.getText().toString()+" "+binding.lastname.getText().toString());
                 detailsModel.setGender("male");
                 detailsModel.setDob("01-08-2002");
+                detailsModel.setMohalla(binding.adressLine1.getText().toString()+","+binding.adressLine2.getText().toString());
+                detailsModel.setCity(binding.city.getText().toString());
+                detailsModel.setState("Madhya Pradesh");
+                detailsModel.setZipcode(binding.zipCode.getText().toString());
                 personDetailViewModel.personDetails.postValue(detailsModel);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
