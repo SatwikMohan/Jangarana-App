@@ -38,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
 //                .commit();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.flFragment,
-                        new ScanAadharFragment(DashboardActivity.this))
+                        new AddFirstFragment(DashboardActivity.this,personDetailViewModel))
                 .commit();
 
         binding.bottomNavForm.setOnClickListener(new View.OnClickListener() {

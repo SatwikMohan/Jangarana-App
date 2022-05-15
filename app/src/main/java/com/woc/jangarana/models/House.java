@@ -2,7 +2,7 @@ package com.woc.jangarana.models;
 
 public class House {
 
-    String id,buildingNoMunicipal,censusHouseNo,floorMaterial,roofMaterial,wallMaterial,useCensusHousehold,conditionCensusHousehold;
+    String id,mohalla,city,district,zipCode,state,buildingNoMunicipal,censusHouseNo,floorMaterial,roofMaterial,wallMaterial,useCensusHousehold,conditionCensusHousehold;
     int noRooms,noPersons,noMarriedCouples;
     String drinkingSource,drinkingSourceAvailability,lightingSource,latrineType,wasteWaterOutletType,mainCereal,mainFuelCooking,mobileNo;
     Boolean latrine,bathingFacility,kitchen,lpgPngConnection,radio,television,internet,laptop,mobilePhone,bike,car;
@@ -16,6 +16,46 @@ public class House {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getMohalla() {
+        return mohalla;
+    }
+
+    public void setMohalla(String mohalla) {
+        this.mohalla = mohalla;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getBuildingNoMunicipal() {

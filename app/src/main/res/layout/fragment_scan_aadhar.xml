@@ -21,34 +21,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="260dp"
-            android:layout_height="260dp"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="4dp"
-            app:cardBackgroundColor="@color/color_primary_variant"
-            android:padding="2dp"
+        <ImageView
+            android:id="@+id/scan_initiate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_scan_svg"
+            android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/view">
+            app:layout_constraintTop_toBottomOf="@+id/view" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="2dp"
-                android:background="@color/white">
-
-                <SurfaceView
-                    android:id="@+id/surfaceView"
-                    android:layout_margin="2dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
+        <ImageView
+            android:id="@+id/skip_this_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_skip_this_step"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/scan_initiate"
+            app:layout_constraintStart_toStartOf="@+id/scan_initiate"
+            app:layout_constraintTop_toBottomOf="@+id/scan_initiate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
