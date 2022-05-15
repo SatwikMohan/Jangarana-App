@@ -2,7 +2,7 @@ package com.woc.jangarana.models;
 
 public class Person {
 
-    String id,name,gender,dob,mohalla,city,district,zipcode,state,country,religion;
+    String id,name,gender,dob,mohalla,city,district,zipCode,state,country,religion;
     String motherTongue,otherTongue,disableDOcLink,caste,casteDocLink,highestEduLevel;
     String occupation,industry,_class,modeOfTravel;
     Boolean maritalStatus,isDisabled,isLiterate,workedLastYear,lookingForWork;
@@ -68,11 +68,11 @@ public class Person {
     }
 
     public String getZipcode() {
-        return zipcode;
+        return zipCode;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setZipcode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getState() {

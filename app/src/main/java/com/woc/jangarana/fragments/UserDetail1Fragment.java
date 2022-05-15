@@ -50,13 +50,18 @@ public class UserDetail1Fragment extends Fragment {
         binding.nextButtondeatil1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                detailsModel.setName(binding.firstName.getText().toString()+" "+binding.lastname.getText().toString());
+//                detailsModel.setName(binding.firstName.getText().toString()+" "+binding.lastname.getText().toString());
+                detailsModel.setName("Tarun Shrivastava");
                 detailsModel.setGender("male");
                 detailsModel.setDob("01-08-2002");
-                detailsModel.setMohalla(binding.adressLine1.getText().toString()+","+binding.adressLine2.getText().toString());
-                detailsModel.setCity(binding.city.getText().toString());
+//                detailsModel.setMohalla(binding.adressLine1.getText().toString()+","+binding.adressLine2.getText().toString());
+                detailsModel.setMohalla("Holi Pura");
+                detailsModel.setCity("Datia");
+                detailsModel.setDistrict("Datia");
                 detailsModel.setState("Madhya Pradesh");
-                detailsModel.setZipcode(binding.zipCode.getText().toString());
+                detailsModel.setCountry("india");
+//                detailsModel.setZipcode(binding.zipCode.getText().toString());
+                detailsModel.setZipcode("475661");
                 personDetailViewModel.personDetails.postValue(detailsModel);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
