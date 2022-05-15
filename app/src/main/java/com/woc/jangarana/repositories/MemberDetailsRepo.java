@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.woc.jangarana.models.Person;
+import com.woc.jangarana.models.PersonResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ public class MemberDetailsRepo {
 
     private static final MemberDetailsRepo instance = new MemberDetailsRepo();
     private final MutableLiveData<String> message = new MutableLiveData<>();
+    private final MutableLiveData<PersonResponse> personResponseMutableLiveData = new MutableLiveData<>();
     RequestQueue requestQueue;
     RequestQueue requestQueue2;
     ProgressDialog progressDialog;
@@ -48,52 +50,58 @@ public class MemberDetailsRepo {
 
 
         try {
-             json = new JSONObject(params);
+            json = new JSONObject(params);
+            String url = "https://jangarana.herokuapp.com/api/form/create";
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,
+                    json, new com.android.volley.Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.d("response", response.toString());
+                    progressDialog.dismiss();
+                    try {
+                        message.postValue(response.get("message").toString());
+                        PersonResponse personResponse = gson.fromJson(response.getJSONObject("form").toString(), PersonResponse.class);
+                        personResponseMutableLiveData.postValue(personResponse);
+                    } catch (JSONException e) {
+                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
+                    Toast.makeText(context, "Your Details are already registered",  Toast.LENGTH_SHORT).show();
+                    Log.d("error", error.toString());
+                }
+            }){
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    SharedPreferences sharedPreferences= context.getSharedPreferences("Head SignUp",Context.MODE_PRIVATE);
+                    String tomken=sharedPreferences.getString("family_head_token","");
+                    Map<String, String> map = new HashMap<>();
+                    map.put("Authorization", "Bearer "+tomken);
+                    return map;
+                }
+            };
+            requestQueue = Volley.newRequestQueue(context);
+            requestQueue.add(jsonObjectRequest);
+
+
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(context, "Error Please try after sometime.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String url = "https://jangarana.herokuapp.com/api/form/create";
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,
-                json, new com.android.volley.Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d("response", response.toString());
-                progressDialog.dismiss();
-                try {
-                    Toast.makeText(context, response.get("message").toString(), Toast.LENGTH_SHORT).show();
-                    message.postValue(response.get("message").toString());
-                } catch (JSONException e) {
-                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(context, error.getLocalizedMessage()+"",  Toast.LENGTH_SHORT).show();
-                Log.d("error", error.toString());
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                SharedPreferences sharedPreferences= context.getSharedPreferences("Head SignUp",Context.MODE_PRIVATE);
-                String tomken=sharedPreferences.getString("family_head_token","");
-                Map<String, String> map = new HashMap<>();
-                map.put("Authorization", "Bearer "+tomken);
-                return map;
-            }
-        };
-        requestQueue = Volley.newRequestQueue(context);
-        requestQueue.add(jsonObjectRequest);
     }
 
     public MutableLiveData<String> getMessage() {
         return message;
     }
-    
+
+    public MutableLiveData<PersonResponse> getPersonDetailsResponse() {
+        return personResponseMutableLiveData;
+    }
 }

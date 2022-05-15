@@ -1,5 +1,6 @@
 package com.woc.jangarana.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,9 +12,34 @@ import android.view.ViewGroup;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentFamilyDetail4Binding;
 
+
+import com.woc.jangarana.viewmodels.FamilyDetailViewModel;
+
+
 public class familyDetail4Fragment extends Fragment {
 
+
     FragmentFamilyDetail4Binding binding;
+    Context context;
+    FamilyDetailViewModel familyDetailViewModel;
+
+    public familyDetail4Fragment() {
+        // Required empty public constructor
+    }
+
+    public familyDetail4Fragment(Context context, FamilyDetailViewModel familyDetailViewModel) {
+        this.context = context;
+        this.familyDetailViewModel = familyDetailViewModel;
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
