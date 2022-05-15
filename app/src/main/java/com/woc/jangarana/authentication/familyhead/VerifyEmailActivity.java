@@ -15,6 +15,7 @@ import com.mukesh.OnOtpCompletionListener;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.ActivityVerifyEmailBinding;
 import com.woc.jangarana.familyhead.DashboardActivity;
+import com.woc.jangarana.models.FClusterAuthentication;
 import com.woc.jangarana.models.FamilyHeadSignup;
 import com.woc.jangarana.viewmodels.SignupViewModel;
 
@@ -65,12 +66,12 @@ public class VerifyEmailActivity extends AppCompatActivity {
             public void onChanged(String s) {
             }
         });
-        viewModel.getUserObserver().observe(this, new Observer<FamilyHeadSignup>() {
+        viewModel.getFClusterObserver().observe(this, new Observer<FClusterAuthentication>() {
             @Override
-            public void onChanged(FamilyHeadSignup s) {
+            public void onChanged(FClusterAuthentication s) {
                 SharedPreferences sharedPreferences= getSharedPreferences("Head SignUp", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("family_head","signUp");
+                editor.putString("family_head_token", s.getToken());
                 editor.commit();
 
                 startActivity(new Intent(VerifyEmailActivity.this, DashboardActivity.class));
