@@ -112,6 +112,18 @@ public class familyDetail3Fragment extends Fragment {
             }
         });
 
+        binding.clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.noOfDaughter.setText("");
+                binding.noOfDaughtersborn.setText("");
+                binding.noOfDaughtersbornlastYear.setText("");
+                binding.noOfsons.setText("");
+                binding.noOfsonsborn.setText("");
+                binding.noOfsonsbornlastYear.setText("");
+            }
+        });
+
 
 
 
