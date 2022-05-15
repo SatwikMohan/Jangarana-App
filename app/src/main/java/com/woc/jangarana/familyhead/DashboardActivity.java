@@ -10,6 +10,7 @@ import android.view.View;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.ActivityDashboardBinding;
 import com.woc.jangarana.fragments.AddFirstFragment;
+import com.woc.jangarana.fragments.ScanAadharFragment;
 import com.woc.jangarana.fragments.UserProfileFragment;
 import com.woc.jangarana.models.Person;
 import com.woc.jangarana.viewmodels.PersonDetailViewModel;
@@ -31,9 +32,13 @@ public class DashboardActivity extends AppCompatActivity {
         personDetailViewModel = new ViewModelProvider(this).get(PersonDetailViewModel.class);
         signupViewModel = new ViewModelProvider(this).get(SignupViewModel.class);
 
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.flFragment,
+//                        new AddFirstFragment(DashboardActivity.this, personDetailViewModel))
+//                .commit();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.flFragment,
-                        new AddFirstFragment(DashboardActivity.this, personDetailViewModel))
+                        new ScanAadharFragment(DashboardActivity.this))
                 .commit();
 
         binding.bottomNavForm.setOnClickListener(new View.OnClickListener() {
