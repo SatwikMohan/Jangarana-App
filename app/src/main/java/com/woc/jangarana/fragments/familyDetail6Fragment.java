@@ -9,58 +9,49 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.woc.jangarana.R;
+import com.woc.jangarana.databinding.FragmentFamilyDetail6Binding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link familyDetail6Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class familyDetail6Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public familyDetail6Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment familyDetail6Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static familyDetail6Fragment newInstance(String param1, String param2) {
-        familyDetail6Fragment fragment = new familyDetail6Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FragmentFamilyDetail6Binding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_family_detail6, container, false);
+
+        binding=FragmentFamilyDetail6Binding.inflate(inflater, container, false);
+
+        binding.nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String marriedCouples=binding.marridCouples.getText().toString().trim();
+                if (marriedCouples.isEmpty()){
+                    binding.marridCouples.setError("Required");
+                    return;
+                }
+                String sourceofwater=binding.sourceOfWater.getText().toString().trim();
+                if (sourceofwater.isEmpty()){
+                    binding.sourceOfWater.setError("Required");
+                    return;
+                }
+                String sourceOfLight=binding.sourceOfLight.getText().toString().trim();
+                if (sourceOfLight.isEmpty()){
+                    binding.sourceOfLight.setError("Required");
+                    return;
+                }
+            }
+        });
+
+        binding.clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.marridCouples.setText("");
+                binding.sourceOfWater.setText("");
+                binding.sourceOfLight.setText("");
+            }
+        });
+
+
+        return binding.getRoot();
     }
 }
