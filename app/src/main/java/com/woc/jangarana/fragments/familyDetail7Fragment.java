@@ -93,6 +93,11 @@ public class familyDetail7Fragment extends Fragment {
                     Toast.makeText(getContext(), "Please mark the boxes", Toast.LENGTH_SHORT).show();
                 }
 
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail8Fragment(context, familyDetailViewModel))
+                        .commit();
+
             }
         });
 

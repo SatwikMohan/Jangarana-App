@@ -58,10 +58,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
+                app:hintEnabled="false"
                 android:background="@drawable/gradient_primary"
-                android:hint="Mobile No"
-                android:padding="1dp"
-                android:textColorHint="@color/field_text"
                 app:circularflow_defaultRadius="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,6 +71,10 @@
                     android:layout_height="match_parent"
                     android:background="@color/white"
                     android:inputType="phone"
+                    android:hint="Mobile No"
+                    android:layout_margin="1dp"
+                    android:paddingVertical="6dp"
+                    android:textColorHint="@color/field_text"
                     android:textColor="@color/fill_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -84,10 +86,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submit_button"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="80dp"
+                android:textColor="@color/white"
                 android:background="@drawable/gradient_primary"
                 android:text="Submit form" />
 

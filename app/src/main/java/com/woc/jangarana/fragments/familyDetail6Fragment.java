@@ -58,6 +58,10 @@ public class familyDetail6Fragment extends Fragment {
                     binding.sourceOfLight.setError("Required");
                     return;
                 }
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail7Fragment(context, familyDetailViewModel))
+                        .commit();
             }
         });
 

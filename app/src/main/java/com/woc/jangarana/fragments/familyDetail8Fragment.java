@@ -89,6 +89,11 @@ public class familyDetail8Fragment extends Fragment {
                     return;
                 }
 
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail9Fragment(context, familyDetailViewModel))
+                        .commit();
+
             }
         });
 

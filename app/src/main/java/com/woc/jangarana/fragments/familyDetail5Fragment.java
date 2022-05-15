@@ -59,6 +59,11 @@ public class familyDetail5Fragment extends Fragment {
                     binding.personsResidingcensus.setError("Required");
                     return;
                 }
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail6Fragment(context, familyDetailViewModel))
+                        .commit();
             }
         });
 

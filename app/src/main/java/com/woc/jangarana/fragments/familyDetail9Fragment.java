@@ -11,12 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.woc.jangarana.R;
+import com.woc.jangarana.databinding.FragmentFamilyDetail9Binding;
 import com.woc.jangarana.models.House;
 import com.woc.jangarana.viewmodels.FamilyDetailViewModel;
 
 
 public class familyDetail9Fragment extends Fragment {
 
+    FragmentFamilyDetail9Binding binding;
     Context context;
     FamilyDetailViewModel familyDetailViewModel;
     House houseDetails;
@@ -44,6 +46,18 @@ public class familyDetail9Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_family_detail9, container, false);
+        binding = FragmentFamilyDetail9Binding.inflate(inflater, container, false);
+        binding.generalHouseholdNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail10Fragment(context, familyDetailViewModel))
+                        .commit();
+            }
+        });
+        return binding.getRoot();
     }
 }
