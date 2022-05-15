@@ -55,9 +55,9 @@ public class UserDetail2Fragment extends Fragment {
                 detailsModel.setMaritalStatus(false);
 //                detailsModel.setAgeMarried(Integer.parseInt(binding.ageOfMarrige.getText().toString()));
                 detailsModel.setAgeMarried(26);
-                detailsModel.setReligion(binding.religion.getText().toString());
+                detailsModel.setReligion("hindu");
                 detailsModel.setMotherTongue("hindi");
-                detailsModel.setOtherTongue("english");
+                detailsModel.setOtherLanguage("english");
                 detailsModel.setDisabled(false);
                 detailsModel.setDisableDOcLink("link");
                 detailsModel.setLiterate(true);
