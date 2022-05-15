@@ -9,12 +9,20 @@ import androidx.lifecycle.Observer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentFamilyDetail1Binding;
 import com.woc.jangarana.databinding.FragmentUserDetail1Binding;
 import com.woc.jangarana.models.Person;
+import com.woc.jangarana.repositories.SpinnerData;
 import com.woc.jangarana.viewmodels.PersonDetailViewModel;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class UserDetail1Fragment extends Fragment {
@@ -47,6 +55,58 @@ public class UserDetail1Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentUserDetail1Binding.inflate(inflater, container, false);
+
+        final String[] gender = {""};
+        final String[] state = {""};
+
+
+
+        SpinnerData spinner_data = new SpinnerData();
+        ArrayAdapter<String> genderAdapter = getAdapter(new ArrayList<>(Arrays.asList(spinner_data.getGender())));
+        ArrayAdapter<String> stateAdapter = getAdapter(new ArrayList<>(Arrays.asList(spinner_data.getStates_ut())));
+        genderAdapter.setDropDownViewResource(R.layout.spinner_items);
+        stateAdapter.setDropDownViewResource(R.layout.spinner_items);
+        binding.genderSpinner.setAdapter(genderAdapter);
+        binding.spinner2.setAdapter(stateAdapter);
+
+        binding.genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+                // If user change the default selection
+                // First item is disable and it is used for hint
+                if(position > 0){
+                    // Notify the selected item text
+                    gender[0] = selectedItemText;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        binding.spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+                // If user change the default selection
+                // First item is disable and it is used for hint
+                if(position > 0){
+                    // Notify the selected item text
+                    state[0] = selectedItemText;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
         binding.nextButtondeatil1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,4 +131,41 @@ public class UserDetail1Fragment extends Fragment {
         });
         return binding.getRoot();
     }
+
+    public ArrayAdapter<String> getAdapter(ArrayList<String> data){
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                context,R.layout.spinner_items,data){
+            @Override
+            public boolean isEnabled(int position){
+                if(position == 0)
+                {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(getActivity().getResources().getColor(R.color.field_text));
+                }
+                else {
+                    tv.setTextColor(getActivity().getResources().getColor(R.color.fill_text));
+                }
+                return view;
+            }
+        };
+
+        return spinnerArrayAdapter;
+    }
+
 }
