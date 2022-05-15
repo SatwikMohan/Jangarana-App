@@ -46,7 +46,27 @@ public class familyDetail3Fragment extends Fragment {
                     binding.noOfsonsborn.setError("Required");
                     return;
                 }
+                String daughterbornLastYear=binding.noOfDaughtersbornlastYear.getText().toString().trim();
+                if(daughterbornLastYear.isEmpty()){
+                    binding.noOfDaughtersbornlastYear.setError("Required");
+                }
+                String sonbornLastYear=binding.noOfsonsbornlastYear.getText().toString().trim();
+                if(sonbornLastYear.isEmpty()){
+                    binding.noOfsonsbornlastYear.setError("Required");
+                }
 
+            }
+        });
+
+        binding.clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.noOfDaughter.setText("");
+                binding.noOfDaughtersborn.setText("");
+                binding.noOfDaughtersbornlastYear.setText("");
+                binding.noOfsons.setText("");
+                binding.noOfsonsborn.setText("");
+                binding.noOfsonsbornlastYear.setText("");
             }
         });
 
