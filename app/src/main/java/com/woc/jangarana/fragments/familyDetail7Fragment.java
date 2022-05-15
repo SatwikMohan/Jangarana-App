@@ -7,60 +7,87 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.woc.jangarana.R;
+import com.woc.jangarana.databinding.FragmentFamilyDetail7Binding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link familyDetail7Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class familyDetail7Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public familyDetail7Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment familyDetail7Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static familyDetail7Fragment newInstance(String param1, String param2) {
-        familyDetail7Fragment fragment = new familyDetail7Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FragmentFamilyDetail7Binding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_family_detail7, container, false);
+
+        binding=FragmentFamilyDetail7Binding.inflate(inflater, container, false);
+
+        binding.latrineYES.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) binding.latrineNO.setChecked(false);
+                else binding.latrineNO.setChecked(true);
+            }
+        });
+
+        binding.latrineNO.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) binding.latrineYES.setChecked(false);
+                else binding.latrineYES.setChecked(true);
+            }
+        });
+
+        binding.bathingYES.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) binding.bathingNO.setChecked(false);
+                else binding.bathingNO.setChecked(true);
+            }
+        });
+
+        binding.bathingNO.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) binding.bathingYES.setChecked(false);
+                else binding.bathingYES.setChecked(true);
+            }
+        });
+
+
+
+
+        binding.nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean bl1=binding.latrineYES.isChecked();
+                boolean bl2=binding.latrineNO.isChecked();
+                boolean bb1=binding.bathingYES.isChecked();
+                boolean bb2=binding.bathingNO.isChecked();
+                if (!bl1 && !bl2){
+                    Toast.makeText(getContext(), "Please mark the boxes", Toast.LENGTH_SHORT).show();
+                }
+                if (!bb1 && !bb2){
+                    Toast.makeText(getContext(), "Please mark the boxes", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        binding.clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.latrineYES.setChecked(false);
+                binding.latrineNO.setChecked(false);
+                binding.bathingYES.setChecked(false);
+                binding.bathingNO.setChecked(false);
+            }
+        });
+
+        return binding.getRoot();
     }
+
 }
