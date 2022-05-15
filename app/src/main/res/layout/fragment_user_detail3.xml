@@ -57,6 +57,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="24dp"
+                    android:background="@drawable/spinner_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +84,7 @@
                     android:layout_height="45dp"
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_background"
                     android:layout_marginRight="24dp" />
 
                 <TextView
@@ -131,6 +133,7 @@
                     android:layout_height="45dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_background"
                     android:layout_marginEnd="24dp" />
 
                 <Spinner
@@ -139,7 +142,8 @@
                     android:layout_height="45dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp" />
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/spinner_background"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

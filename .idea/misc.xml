@@ -5,7 +5,13 @@
       <map>
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/gradient_primary.xml" value="0.2055" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/ic_add_family_member_button.xml" value="0.2055" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.2055" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/ic_baseline_arrow_drop_up_24.xml" value="0.2055" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/ic_down_arrow_box.xml" value="0.2055" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/ic_up_arrow_box.xml" value="0.2055" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/ic_verify_email_button.xml" value="0.2055" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/progress_gradient.xml" value="0.2055" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/drawable/spinner_background.xml" value="0.2055" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/font/dm_mono.xml" value="0.284375" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/font/dm_mono_medium.xml" value="0.284375" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
@@ -16,11 +22,19 @@
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/activity_staff_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/activity_verify_email.xml" value="0.264" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_add_first.xml" value="0.264" />
-        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail1.xml" value="0.4" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail1.xml" value="0.264" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail10.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail2.xml" value="0.25416666666666665" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail3.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail4.xml" value="0.264" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail5.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail6.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail7.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail8.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_family_detail9.xml" value="0.2" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_staff_profile.xml" value="0.24010416666666667" />
-        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_detail1.xml" value="0.2" />
-        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_detail2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_detail1.xml" value="0.264" />
+        <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_detail2.xml" value="0.2" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_detail3.xml" value="0.25416666666666665" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_detail4.xml" value="0.25416666666666665" />
         <entry key="..\:/Dev/Winter Challenge/Jangarana/app/src/main/res/layout/fragment_user_profile.xml" value="0.25416666666666665" />

@@ -111,8 +111,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:backgroundTint="@color/white"
-                android:foregroundTint="@color/color_primary"
+                android:background="@drawable/spinner_background"
                 android:foregroundTintMode="src_atop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
@@ -253,11 +252,12 @@
                     android:background="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner2"
                 android:layout_width="170dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/spinner_background"
                 app:layout_constraintBottom_toBottomOf="@+id/textInputLayout6"
                 app:layout_constraintStart_toEndOf="@+id/textInputLayout6"
                 app:layout_constraintTop_toTopOf="@+id/textInputLayout6" />
