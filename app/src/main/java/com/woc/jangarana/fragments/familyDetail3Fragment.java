@@ -1,8 +1,10 @@
 package com.woc.jangarana.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +12,38 @@ import android.view.ViewGroup;
 
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentFamilyDetail3Binding;
+import com.woc.jangarana.models.Fertility;
+import com.woc.jangarana.models.Migration;
+import com.woc.jangarana.viewmodels.FamilyDetailViewModel;
 
 import java.util.function.BiConsumer;
 
 public class familyDetail3Fragment extends Fragment {
 
     FragmentFamilyDetail3Binding binding;
+
+    Context context;
+    FamilyDetailViewModel familyDetailViewModel;
+    Fertility fertilityDetails;
+
+    public familyDetail3Fragment(Context context, FamilyDetailViewModel familyDetailViewModel) {
+        this.context = context;
+        this.familyDetailViewModel = familyDetailViewModel;
+    }
+
+    public familyDetail3Fragment() {
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        familyDetailViewModel.getFertilityDetailsObserver().observe(requireActivity(), new Observer<Fertility>() {
+            @Override
+            public void onChanged(Fertility fertility) {
+                fertilityDetails = fertility;
+            }
+        });
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

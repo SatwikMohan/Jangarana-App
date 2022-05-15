@@ -20,6 +20,7 @@ import com.woc.jangarana.models.Fertility;
 import com.woc.jangarana.models.House;
 import com.woc.jangarana.models.Migration;
 import com.woc.jangarana.models.Person;
+import com.woc.jangarana.models.PersonResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -211,9 +212,6 @@ public class FamilyDetailRepo {
 
 
     }
-
-
-
 
     public MutableLiveData<String> getMessage() {
         return message;

@@ -10,8 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentUserDetail4Binding;
+import com.woc.jangarana.models.House;
+import com.woc.jangarana.models.Migration;
 import com.woc.jangarana.models.Person;
+import com.woc.jangarana.models.PersonResponse;
+import com.woc.jangarana.viewmodels.FamilyDetailViewModel;
 import com.woc.jangarana.viewmodels.PersonDetailViewModel;
 
 
@@ -21,11 +26,13 @@ public class UserDetail4Fragment extends Fragment {
     FragmentUserDetail4Binding binding;
     Context context;
     PersonDetailViewModel personDetailViewModel;
+    FamilyDetailViewModel familyDetailViewModel;
     private Person detailsModel;
 
     public UserDetail4Fragment(Context context, PersonDetailViewModel personDetailViewModel) {
         this.context = context;
         this.personDetailViewModel = personDetailViewModel;
+        this.familyDetailViewModel = new FamilyDetailViewModel();
     }
 
 
@@ -54,6 +61,18 @@ public class UserDetail4Fragment extends Fragment {
                 detailsModel.setModeOfTravel("bike");
 
                 personDetailViewModel.createdetails(detailsModel, context);
+
+                personDetailViewModel.getPersonDetailsResponseObserver().observe(requireActivity(), new Observer<PersonResponse>() {
+                    @Override
+                    public void onChanged(PersonResponse personResponse) {
+                        Migration migration = new Migration();
+                        migration.setId(personResponse.getId());
+                        familyDetailViewModel.migrationDetails.postValue(migration);
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.flFragment, new familyDetail1Fragment(familyDetailViewModel, context))
+                                .commit();
+                    }
+                });
             }
         });
         return binding.getRoot();

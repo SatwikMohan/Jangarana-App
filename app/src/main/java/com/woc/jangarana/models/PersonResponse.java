@@ -1,14 +1,38 @@
 package com.woc.jangarana.models;
 
-public class Person {
+public class PersonResponse {
 
-    String id,name,gender,dob,mohalla,city,district,zipCode,state,country,religion;
-    String motherTongue,otherLanguage,disableDOcLink,caste,casteDocLink,highestEduLevel;
+    String _id,id,name,gender,dob,mohalla,city,district,zipCode,state,country,religion;
+    String motherTongue,otherTongue,disableDOcLink,caste,casteDocLink,highestEduLevel;
     String occupation,industry,_class,modeOfTravel;
     Boolean maritalStatus,isDisabled,isLiterate,workedLastYear,lookingForWork;
-    int ageMarried,oneWayDisToWork;
+    int ageMarried,oneWayDisToWork,__v;
 
-    public Person() {
+    public PersonResponse() {
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public int get__v() {
+        return __v;
+    }
+
+    public void set__v(int __v) {
+        this.__v = __v;
     }
 
     public String getId() {
@@ -67,14 +91,6 @@ public class Person {
         this.district = district;
     }
 
-    public String getZipcode() {
-        return zipCode;
-    }
-
-    public void setZipcode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
     public String getState() {
         return state;
     }
@@ -107,12 +123,12 @@ public class Person {
         this.motherTongue = motherTongue;
     }
 
-    public String getOtherLanguage() {
-        return otherLanguage;
+    public String getOtherTongue() {
+        return otherTongue;
     }
 
-    public void setOtherLanguage(String otherLanguage) {
-        this.otherLanguage = otherLanguage;
+    public void setOtherTongue(String otherTongue) {
+        this.otherTongue = otherTongue;
     }
 
     public String getDisableDOcLink() {
@@ -234,4 +250,6 @@ public class Person {
     public void setOneWayDisToWork(int oneWayDisToWork) {
         this.oneWayDisToWork = oneWayDisToWork;
     }
+
+
 }

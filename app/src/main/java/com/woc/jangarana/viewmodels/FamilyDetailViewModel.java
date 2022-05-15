@@ -17,6 +17,7 @@ public class FamilyDetailViewModel extends ViewModel {
     public MutableLiveData<String> message;
     public FamilyDetailRepo repo;
     public MutableLiveData<House> houseDetails;
+    public MutableLiveData<House> houseDetailsResponse;
     public MutableLiveData<Migration> migrationDetails;
     public MutableLiveData<Fertility> fertilityDetails;
 
@@ -40,6 +41,7 @@ public class FamilyDetailViewModel extends ViewModel {
     public MutableLiveData<House> getHouseDetailsObserver(){
         return houseDetails;
     }
+
 
     public void addHouseDetails(House model, Context context){
         repo.houseDetails(model,context);
