@@ -7,60 +7,65 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.woc.jangarana.R;
+import com.woc.jangarana.databinding.FragmentFamilyDetail1Binding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link familyDetail1Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class familyDetail1Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public familyDetail1Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment familyDetail1Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static familyDetail1Fragment newInstance(String param1, String param2) {
-        familyDetail1Fragment fragment = new familyDetail1Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FragmentFamilyDetail1Binding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_family_detail1, container, false);
+
+        binding=FragmentFamilyDetail1Binding.inflate(inflater, container, false);
+
+        binding.checkNo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                binding.checkYes.toggle();
+            }
+        });
+
+
+        binding.nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.checkYes.isChecked()){
+                    String lastCountry=binding.lastResidenceContry.getText().toString().trim();
+                    if (lastCountry.isEmpty()){
+                        binding.lastResidenceContry.setError("Required");
+                        return;
+                    }
+                    String lastCity=binding.lastResidenceCity.getText().toString().trim();
+                    if (lastCity.isEmpty()){
+                        binding.lastResidenceCity.setError("");
+                    }
+                    String postalCode=binding.postalCodeLastResidence.getText().toString().trim();
+                    if (postalCode.isEmpty()){
+                        binding.postalCodeLastResidence.setError("Required");
+                    }
+                }
+                else if (!binding.checkNo.isChecked()){
+                    Toast.makeText(getContext(), "please check any one checkbox", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+            }
+        });
+
+        binding.clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
+        return binding.getRoot();
     }
+
+
 }
