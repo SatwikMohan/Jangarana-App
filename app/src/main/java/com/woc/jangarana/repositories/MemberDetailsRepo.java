@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.woc.jangarana.models.Person;
+import com.woc.jangarana.models.PersonResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ public class MemberDetailsRepo {
 
     private static final MemberDetailsRepo instance = new MemberDetailsRepo();
     private final MutableLiveData<String> message = new MutableLiveData<>();
+    private final MutableLiveData<PersonResponse> personResponseMutableLiveData = new MutableLiveData<>();
     RequestQueue requestQueue;
     RequestQueue requestQueue2;
     ProgressDialog progressDialog;
@@ -57,19 +59,19 @@ public class MemberDetailsRepo {
                     Log.d("response", response.toString());
                     progressDialog.dismiss();
                     try {
-                        Toast.makeText(context, response.get("message").toString(), Toast.LENGTH_SHORT).show();
                         message.postValue(response.get("message").toString());
+                        PersonResponse personResponse = gson.fromJson(response.getJSONObject("form").toString(), PersonResponse.class);
+                        personResponseMutableLiveData.postValue(personResponse);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
-
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     progressDialog.dismiss();
-                    Toast.makeText(context, error.getMessage()+"",  Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Your Details are already registered",  Toast.LENGTH_SHORT).show();
                     Log.d("error", error.toString());
                 }
             }){
@@ -98,5 +100,8 @@ public class MemberDetailsRepo {
     public MutableLiveData<String> getMessage() {
         return message;
     }
-    
+
+    public MutableLiveData<PersonResponse> getPersonDetailsResponse() {
+        return personResponseMutableLiveData;
+    }
 }

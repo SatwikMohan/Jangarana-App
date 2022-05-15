@@ -20,6 +20,7 @@ import com.woc.jangarana.models.Fertility;
 import com.woc.jangarana.models.House;
 import com.woc.jangarana.models.Migration;
 import com.woc.jangarana.models.Person;
+import com.woc.jangarana.models.PersonResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -177,7 +178,7 @@ public class FamilyDetailRepo {
                     try {
                         message.postValue(response.get("message").toString());
                     } catch (JSONException e) {
-                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"On Response:"+e.getMessage(), Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
 
@@ -211,9 +212,6 @@ public class FamilyDetailRepo {
 
 
     }
-
-
-
 
     public MutableLiveData<String> getMessage() {
         return message;

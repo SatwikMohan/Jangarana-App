@@ -57,7 +57,7 @@ public class UserDetail2Fragment extends Fragment {
                 detailsModel.setAgeMarried(26);
                 detailsModel.setReligion("hindu");
                 detailsModel.setMotherTongue("hindi");
-                detailsModel.setOtherTongue("english");
+                detailsModel.setOtherLanguage("english");
                 detailsModel.setDisabled(false);
                 detailsModel.setDisableDOcLink("link");
                 detailsModel.setLiterate(true);
