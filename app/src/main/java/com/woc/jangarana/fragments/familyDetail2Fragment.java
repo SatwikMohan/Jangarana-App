@@ -73,7 +73,8 @@ public class familyDetail2Fragment extends Fragment {
                         fertility.setId(migrationDetails.getId());
                         familyDetailViewModel.fertilityDetails.postValue(fertility);
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.flFragment, new familyDetail3Fragment(context, familyDetailViewModel));
+                                .replace(R.id.flFragment, new familyDetail3Fragment(context, familyDetailViewModel))
+                        .commit();
                     }
                 });
             }

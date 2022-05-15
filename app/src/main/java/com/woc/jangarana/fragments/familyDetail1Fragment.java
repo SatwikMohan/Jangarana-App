@@ -54,13 +54,6 @@ public class familyDetail1Fragment extends Fragment {
                 binding.checkYes.toggle();
             }
         });
-        binding.checkYes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                binding.checkNo.toggle();
-            }
-        });
-
 
         binding.nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
