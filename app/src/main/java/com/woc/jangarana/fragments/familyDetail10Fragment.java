@@ -55,6 +55,7 @@ public class familyDetail10Fragment extends Fragment {
         binding = FragmentFamilyDetail10Binding.inflate(inflater, container, false);
         binding.submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
 
                 Toast.makeText(context, "Data Uploaded", Toast.LENGTH_SHORT).show();
