@@ -63,20 +63,20 @@ The detailed of every feature can be viewed from the following link:
 * jsonwebtoken (jwt)
 * Nodemailer
 
-      "body-parser": "^1.20.0"
-      "cookie-parser": "^1.4.6"
-      "cors": "^2.8.5"
-      "dotenv": "^16.0.0"
-      "express": "^4.18.1"
-      "express-jwt": "^7.7.0"
-      "express-validator": "^6.14.0"
-      "formidable": "^2.0.1"
-      "jsonwebtoken": "^8.5.1"
-      "mongoose": "^6.3.2"
-      "nodemailer": "^6.7.5"
-      "nodemon": "^2.0.16"
-      "npm": "^8.9.0"
-      "uuid": "^3.3.3"
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.4",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-jwt": "^5.3.1",
+        "express-validator": "^6.2.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.7.7",
+        "nodemailer": "^6.7.2",
+        "nodemailer-smtp-transport": "^2.7.4",
+        "nodemon": "^1.19.4",
+        "npm": "^6.13.0",
+        "uuid": "^3.3.3"
 
 
 ## API Documentation
