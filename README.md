@@ -90,7 +90,4 @@ API Documentation:
     https://www.getpostman.com/collections/4026518ba81169eb5aa1
     
      
-    
-## Application Flow Figma File:
-[File](https://www.figma.com/file/bJJIKdrc5XCNAfwQgAtPh6/Winter-Challenge-jangarna-Flowchart?node-id=0%3A1)
-
+  
