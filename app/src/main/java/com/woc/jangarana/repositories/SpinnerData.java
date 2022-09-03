@@ -4,6 +4,11 @@ public class SpinnerData {
 
 
     public String Gender[] = {"Gender","Male","Female","Others"};
+    public String Marital_st[]={"Married Status","Married","Unmarried"};
+    public String MotherToung[]={"Mother Toung","Assamese","Bengali","Gujarati",
+            "Hindi","Kannada","Punjabi","Marathi","Sanskrit","Tamil","Telugu","Manipuri"};
+    public String OtherLanguage[]={"Other Language","Assamese","Bengali","Gujarati",
+            "Hindi","Kannada","Punjabi","Marathi","Sanskrit","Tamil","Telugu","Manipuri"};
     public String States_ut[] = {
             "State/UT",
             "Andaman and Nicobar Islands",
@@ -48,6 +53,18 @@ public class SpinnerData {
 
     public String[] getGender() {
         return Gender;
+    }
+
+    public String[] getMarital_st() {
+        return Marital_st;
+    }
+
+    public String[] getMotherToung() {
+        return MotherToung;
+    }
+
+    public String[] getOtherLanguage() {
+        return OtherLanguage;
     }
 
     public String[] getStates_ut() {

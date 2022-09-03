@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -53,12 +54,14 @@
                     android:id="@+id/marritalStatus"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="48dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingVertical="2dp"
+                    android:paddingLeft="8dp"
+                    android:paddingEnd="48dp"
+                    android:entries="@array/gender"
                     android:background="@drawable/spinner_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:foregroundTintMode="src_atop"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -70,18 +73,18 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/gradient_primary"
-                    app:hintEnabled="false"
                     android:padding="1dp"
-                    app:circularflow_defaultRadius="4dp">
+                    app:circularflow_defaultRadius="4dp"
+                    app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/religion"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:textColor="@color/fill_text"
-                        android:paddingVertical="4dp"
                         android:hint="Your Religion"
+                        android:paddingVertical="4dp"
+                        android:textColor="@color/fill_text"
                         android:textColorHint="@color/field_text"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -101,8 +104,8 @@
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/gradient_primary"
                     android:padding="1dp"
-                    app:hintEnabled="false"
                     app:circularflow_defaultRadius="4dp"
+                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/marritalStatus">
@@ -112,9 +115,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:textColor="@color/fill_text"
-                        android:paddingVertical="6dp"
                         android:hint="Age of Marriage (If Married)"
+                        android:paddingVertical="6dp"
+                        android:textColor="@color/fill_text"
                         android:textColorHint="@color/field_text"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -125,31 +128,36 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Spinner
+                <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/motherTounge"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:paddingVertical="2dp"
+                    android:paddingLeft="8dp"
+                    android:paddingEnd="48dp"
+                    android:entries="@array/gender"
                     android:background="@drawable/spinner_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:foregroundTintMode="src_atop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                <Spinner
-                    android:id="@+id/languageKnown"
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/otherLanguage"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:paddingVertical="2dp"
+                    android:paddingLeft="8dp"
+                    android:paddingEnd="48dp"
+                    android:entries="@array/gender"
                     android:background="@drawable/spinner_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:foregroundTintMode="src_atop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/motherTounge" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout15"
@@ -195,20 +203,22 @@
                     app:iconGravity="end"
                     app:iconTint="@color/color_primary"
                     app:strokeColor="@color/color_primary"
-                    app:strokeWidth="1dp"/>
+                    app:strokeWidth="1dp" />
 
-                <Spinner
-                    android:id="@+id/litracyStatus"
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/literacystatus"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:paddingVertical="2dp"
+                    android:paddingLeft="8dp"
+                    android:paddingEnd="48dp"
+                    android:entries="@array/gender"
                     android:background="@drawable/spinner_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:foregroundTintMode="src_atop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/motherTounge" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
