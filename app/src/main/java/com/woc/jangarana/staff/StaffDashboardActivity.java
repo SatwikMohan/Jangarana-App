@@ -8,6 +8,7 @@ import android.view.View;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.ActivityStaffDashboardBinding;
 import com.woc.jangarana.fragments.AddFirstFragment;
+import com.woc.jangarana.fragments.StaffDashboardFragment;
 import com.woc.jangarana.fragments.StaffProfileFragment;
 import com.woc.jangarana.fragments.UserProfileFragment;
 
@@ -22,11 +23,8 @@ public class StaffDashboardActivity extends AppCompatActivity {
         binding = ActivityStaffDashboardBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_staff_dashboard);
 
-
-
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.flFragment,
-                        new AddFirstFragment())
+                .replace(R.id.flFragment, new StaffDashboardFragment(this))
                 .commit();
 
         binding.bottomNavForm.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +36,7 @@ public class StaffDashboardActivity extends AppCompatActivity {
                 binding.bottomNavProfile.setCardBackgroundColor(getResources().getColor(R.color.white));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
-                                new AddFirstFragment())
+                               new StaffDashboardFragment(StaffDashboardActivity.this))
                         .commit();
             }
         });
