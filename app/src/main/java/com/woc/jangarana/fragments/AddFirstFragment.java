@@ -70,6 +70,22 @@ public class AddFirstFragment extends Fragment {
             }
         });
 
+        binding.addMemberButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sharedPreferences = getActivity().getSharedPreferences("Head SignUp", MODE_PRIVATE);
+                person = new Person();
+                person.setId(sharedPreferences.getString("family_head_token" , "")+Math.random()*1000000000);
+                personDetailViewModel.personDetails.postValue(person);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new UserDetail1Fragment(context, personDetailViewModel))
+                        .commit();
+            }
+        });
+
         return binding.getRoot();
     }
 }

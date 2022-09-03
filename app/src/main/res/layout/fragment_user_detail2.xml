@@ -70,9 +70,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/gradient_primary"
-                    android:hint="Your Religion"
+                    app:hintEnabled="false"
                     android:padding="1dp"
-                    android:textColorHint="@color/field_text"
                     app:circularflow_defaultRadius="4dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -81,6 +80,9 @@
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:textColor="@color/fill_text"
+                        android:paddingVertical="4dp"
+                        android:hint="Your Religion"
+                        android:textColorHint="@color/field_text"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView10"
@@ -98,9 +100,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/gradient_primary"
-                    android:hint="Age of Marriage (If Married)"
                     android:padding="1dp"
-                    android:textColorHint="@color/field_text"
+                    app:hintEnabled="false"
                     app:circularflow_defaultRadius="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +113,9 @@
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:textColor="@color/fill_text"
+                        android:paddingVertical="6dp"
+                        android:hint="Age of Marriage (If Married)"
+                        android:textColorHint="@color/field_text"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView10"
@@ -178,11 +182,20 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
                     android:layout_marginLeft="24dp"
-                    android:layout_marginTop="8dp"></androidx.appcompat.widget.AppCompatButton>
+                    android:layout_marginTop="8dp"
+                    android:text="Upload Proof Document"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_primary"
+                    app:backgroundTint="#EDEDED"
+                    app:icon="@drawable/ic_uplaod"
+                    app:iconGravity="end"
+                    app:iconTint="@color/color_primary"
+                    app:strokeColor="@color/color_primary"
+                    app:strokeWidth="1dp"/>
 
                 <Spinner
                     android:id="@+id/litracyStatus"

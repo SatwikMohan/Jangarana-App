@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -92,6 +94,13 @@ public class PersonWiseData extends AppCompatActivity {
     }
 
     private void set_data (JSONObject object) throws JSONException {
+
+        binding.moreData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PersonWiseData.this, HouseholdWiseData.class));
+            }
+        });
 
         binding.maleCount.setText(String.valueOf(object.getInt("maleCount")));
         binding.femaleCount.setText(String.valueOf(object.getInt("femaleCount")));

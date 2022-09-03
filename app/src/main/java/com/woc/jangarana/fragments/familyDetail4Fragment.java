@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentFamilyDetail4Binding;
 
 
+import com.woc.jangarana.models.Fertility;
+import com.woc.jangarana.models.House;
 import com.woc.jangarana.viewmodels.FamilyDetailViewModel;
 
 
@@ -22,6 +25,7 @@ public class familyDetail4Fragment extends Fragment {
     FragmentFamilyDetail4Binding binding;
     Context context;
     FamilyDetailViewModel familyDetailViewModel;
+    House houseDetails;
 
     public familyDetail4Fragment() {
         // Required empty public constructor
@@ -37,6 +41,12 @@ public class familyDetail4Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        familyDetailViewModel.getHouseDetailsObserver().observe(requireActivity(), new Observer<House>() {
+            @Override
+            public void onChanged(House house) {
+                houseDetails = house;
+            }
+        });
     }
 
 
@@ -64,6 +74,16 @@ public class familyDetail4Fragment extends Fragment {
                     binding.noOfRooms.setError("");
                     return;
                 }
+
+                houseDetails.setCensusHouseNo(houseNo);
+                houseDetails.setBuildingNoMunicipal(buildingNo);
+                houseDetails.setNoRooms(Integer.parseInt(noOfRoom));
+                familyDetailViewModel.houseDetails.postValue(houseDetails);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail5Fragment(context, familyDetailViewModel))
+                        .commit();
+
             }
         });
 
@@ -75,6 +95,7 @@ public class familyDetail4Fragment extends Fragment {
                 binding.noOfRooms.setText("");
             }
         });
+
 
         return binding.getRoot();
     }
