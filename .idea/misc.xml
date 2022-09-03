@@ -56,8 +56,8 @@
         <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_family_detail8.xml" value="0.16145833333333334" />
         <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_family_detail9.xml" value="0.17552083333333332" />
         <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_staff_profile.xml" value="0.16666666666666666" />
-        <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_detail1.xml" value="0.16666666666666666" />
-        <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_detail2.xml" value="0.16666666666666666" />
+        <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_detail1.xml" value="0.13333333333333333" />
+        <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_detail2.xml" value="0.22" />
         <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_detail3.xml" value="0.22" />
         <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_detail4.xml" value="0.17552083333333332" />
         <entry key="..\:/Jangarana/app/src/main/res/layout/fragment_user_profile.xml" value="0.17552083333333332" />
@@ -74,6 +74,9 @@
       </map>
     </option>
   </component>
+
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+
   <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
