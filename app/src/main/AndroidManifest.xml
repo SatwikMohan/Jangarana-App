@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jangarana">
         <activity
-            android:name=".HouseholdWiseData"
+            android:name=".SplashScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,7 +56,7 @@
             android:exported="false"
             android:theme="@style/Theme.Jangarana" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".HouseholdWiseData"
             android:exported="true"
             android:theme="@style/Theme.Jangarana"></activity>
 

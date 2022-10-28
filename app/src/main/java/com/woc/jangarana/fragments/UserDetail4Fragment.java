@@ -1,6 +1,7 @@
 package com.woc.jangarana.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -68,9 +69,17 @@ public class UserDetail4Fragment extends Fragment {
                         Migration migration = new Migration();
                         migration.setId(personResponse.getId());
                         familyDetailViewModel.migrationDetails.postValue(migration);
-                        getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.flFragment, new familyDetail1Fragment(familyDetailViewModel, context))
-                                .commit();
+                        SharedPreferences sharedPreferences= context.getSharedPreferences("Head SignUp",Context.MODE_PRIVATE);
+                        String tomken=sharedPreferences.getString("family_head_token","");
+                        if(personResponse.getId().equals(tomken)){
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.flFragment, new familyDetail1Fragment(familyDetailViewModel, context))
+                                    .commit();
+                        }else{
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.flFragment, new AddFirstFragment())
+                                    .commit();
+                        }
                     }
                 });
             }

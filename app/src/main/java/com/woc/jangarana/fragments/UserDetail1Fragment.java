@@ -59,8 +59,6 @@ public class UserDetail1Fragment extends Fragment {
         final String[] gender = {""};
         final String[] state = {""};
 
-
-
         SpinnerData spinner_data = new SpinnerData();
         ArrayAdapter<String> genderAdapter = getAdapter(new ArrayList<>(Arrays.asList(spinner_data.getGender())));
         ArrayAdapter<String> stateAdapter = getAdapter(new ArrayList<>(Arrays.asList(spinner_data.getStates_ut())));
@@ -140,8 +138,6 @@ public class UserDetail1Fragment extends Fragment {
             public boolean isEnabled(int position){
                 if(position == 0)
                 {
-                    // Disable the first item from Spinner
-                    // First item will be use for hint
                     return false;
                 }
                 else

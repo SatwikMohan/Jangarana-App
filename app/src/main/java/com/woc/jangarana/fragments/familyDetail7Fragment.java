@@ -1,8 +1,10 @@
 package com.woc.jangarana.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +15,32 @@ import android.widget.Toast;
 
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentFamilyDetail7Binding;
+import com.woc.jangarana.models.House;
+import com.woc.jangarana.viewmodels.FamilyDetailViewModel;
 
 
 public class familyDetail7Fragment extends Fragment {
 
     FragmentFamilyDetail7Binding binding;
+    Context context;
+    FamilyDetailViewModel familyDetailViewModel;
+    House houseDetails;
+
+    public familyDetail7Fragment(Context context, FamilyDetailViewModel familyDetailViewModel) {
+        this.context = context;
+        this.familyDetailViewModel = familyDetailViewModel;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        familyDetailViewModel.getHouseDetailsObserver().observe(requireActivity(), new Observer<House>() {
+            @Override
+            public void onChanged(House house) {
+                houseDetails = house;
+            }
+        });
 
         binding=FragmentFamilyDetail7Binding.inflate(inflater, container, false);
 
@@ -73,6 +92,11 @@ public class familyDetail7Fragment extends Fragment {
                 if (!bb1 && !bb2){
                     Toast.makeText(getContext(), "Please mark the boxes", Toast.LENGTH_SHORT).show();
                 }
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment,
+                                new familyDetail8Fragment(context, familyDetailViewModel))
+                        .commit();
 
             }
         });

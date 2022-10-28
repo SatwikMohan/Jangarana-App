@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -82,7 +84,7 @@ public class PersonWiseData extends AppCompatActivity {
         }){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                String tomken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdkZjNjZTRhMzNkZDAwMjNmOGM3ZDYiLCJpYXQiOjE2NTI0MjE2OTB9.SeKJy-tU8Ob2mas4uI4SQHdLfmcJSiVL9s0zi4HfQO8";
+                String tomken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzEyZWU0MDkyMjVlMTAwMjM1NjUzYjEiLCJpYXQiOjE2NjIxODk4OTN9.EP9zj5UfObl41pYX6tEyD9Lr__2v6miBAQg7gzuAcMg";
                 Map<String, String> map = new HashMap<>();
                 map.put("Authorization", "Bearer "+tomken);
                 return map;
@@ -92,6 +94,13 @@ public class PersonWiseData extends AppCompatActivity {
     }
 
     private void set_data (JSONObject object) throws JSONException {
+
+        binding.moreData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PersonWiseData.this, HouseholdWiseData.class));
+            }
+        });
 
         binding.maleCount.setText(String.valueOf(object.getInt("maleCount")));
         binding.femaleCount.setText(String.valueOf(object.getInt("femaleCount")));

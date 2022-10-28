@@ -50,11 +50,10 @@ public class FamilyHeadSignUpActivity extends AppCompatActivity {
             binding.password.setError("Enter password min 6 characters");
             return;
         }
-
+        binding.progressBar2.setVisibility(View.VISIBLE);
         userSignupModel = new FamilyHeadSignup(binding.familyHeadName.getText().toString(), binding.familyHeadEmail.getText().toString(),binding.password.getText().toString());
 
         viewModel.createNewUser(userSignupModel, FamilyHeadSignUpActivity.this);
-
     }
 
     private void initViewModel() {
@@ -68,6 +67,7 @@ public class FamilyHeadSignUpActivity extends AppCompatActivity {
         viewModel.getTokenUserObserver().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
+                binding.progressBar2.setVisibility(View.GONE);
                 startActivity(new Intent(FamilyHeadSignUpActivity.this, VerifyEmailActivity.class));
             }
         });

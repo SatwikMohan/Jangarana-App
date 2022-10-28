@@ -3,10 +3,12 @@ package com.woc.jangarana.familyhead;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.woc.jangarana.PersonWiseData;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.ActivityDashboardBinding;
 import com.woc.jangarana.fragments.AddFirstFragment;
@@ -38,7 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
 //                .commit();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.flFragment,
-                        new ScanAadharFragment(DashboardActivity.this))
+                        new AddFirstFragment(DashboardActivity.this,personDetailViewModel))
                 .commit();
 
         binding.bottomNavForm.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +64,7 @@ public class DashboardActivity extends AppCompatActivity {
                 binding.bottomNavProfile.setCardBackgroundColor(getResources().getColor(R.color.highlight_gray));
                 binding.bottomNavForm.setStrokeColor(getResources().getColor(R.color.white));
                 binding.bottomNavForm.setCardBackgroundColor(getResources().getColor(R.color.white));
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.flFragment,
-                                new UserProfileFragment())
-                        .commit();
+                startActivity(new Intent(DashboardActivity.this, PersonWiseData.class));
             }
         });
 

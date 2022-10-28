@@ -40,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
-        android:text="Fill in the 4 Digit Code sent to\n you email ID"
+        android:text="Fill in the 5 Digit Code sent to\n you email ID"
         android:textColor="#9A1A1A1A"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

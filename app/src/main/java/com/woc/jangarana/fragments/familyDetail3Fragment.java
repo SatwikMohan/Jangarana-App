@@ -129,6 +129,7 @@ public class familyDetail3Fragment extends Fragment {
 
 
 
+
         return binding.getRoot();
     }
 }
