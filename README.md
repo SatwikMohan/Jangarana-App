@@ -28,7 +28,7 @@ A Mobile appplication created to ease the process of making the census process o
 [Download Application Apk from here](https://drive.google.com/drive/u/0/folders/1GmmpBvUy5m4wy0AmUmKOeVHzd_PrG16D)
 
 
-# 
+## Figma
 
 
 The detailed of every feature can be viewed from the following link:
@@ -85,9 +85,13 @@ The detailed of every feature can be viewed from the following link:
 
 API Documentation: 
 
-[postman](https://www.getpostman.com/collections/4026518ba81169eb5aa1)
+[Postman](https://www.getpostman.com/collections/4026518ba81169eb5aa1)
     
     https://www.getpostman.com/collections/4026518ba81169eb5aa1
+    
+[Local Postman](https://www.getpostman.com/collections/6b548828b606c6446981)
+    
+    https://www.getpostman.com/collections/6b548828b606c6446981  
     
      
   
