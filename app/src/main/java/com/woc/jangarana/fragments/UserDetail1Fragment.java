@@ -11,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hbb20.CountryCodePicker;
 import com.woc.jangarana.R;
 import com.woc.jangarana.databinding.FragmentFamilyDetail1Binding;
 import com.woc.jangarana.databinding.FragmentUserDetail1Binding;
@@ -104,22 +106,59 @@ public class UserDetail1Fragment extends Fragment {
         });
 
 
+        binding.clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.firstName.getText().clear();
+                binding.lastname.getText().clear();
+                binding.adressLine1.getText().clear();
+                binding.adressLine2.getText().clear();
+                binding.city.getText().clear();
+                binding.zipCode.getText().clear();
+                binding.genderSpinner.setAdapter(null);
+                binding.spinner2.setAdapter(null);
+                binding.genderSpinner.setAdapter(genderAdapter);
+                binding.spinner2.setAdapter(stateAdapter);
+                binding.genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedItemText = (String) parent.getItemAtPosition(position);
+                        if(position > 0){
+                            gender[0] = selectedItemText;
+                        }
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
+
+                binding.spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedItemText = (String) parent.getItemAtPosition(position);
+                        if(position > 0){
+                            state[0] = selectedItemText;
+                        }
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
+            }
+        });
 
         binding.nextButtondeatil1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                detailsModel.setName(binding.firstName.getText().toString()+" "+binding.lastname.getText().toString());
-                detailsModel.setName("Tarun Shrivastava");
-                detailsModel.setGender("male");
-                detailsModel.setDob("01-08-2002");
-//                detailsModel.setMohalla(binding.adressLine1.getText().toString()+","+binding.adressLine2.getText().toString());
-                detailsModel.setMohalla("Holi Pura");
-                detailsModel.setCity("Datia");
-                detailsModel.setDistrict("Datia");
-                detailsModel.setState("Madhya Pradesh");
-                detailsModel.setCountry("india");
-//                detailsModel.setZipcode(binding.zipCode.getText().toString());
-                detailsModel.setZipcode("475661");
+                detailsModel.setName(binding.firstName.getText().toString()+" "+binding.lastname.getText().toString());
+                detailsModel.setGender(binding.genderSpinner.toString());
+                detailsModel.setDob("01-01-2003");
+                detailsModel.setMohalla(binding.adressLine1.getText().toString()+","+binding.adressLine2.getText().toString());
+                detailsModel.setCity(binding.city.getText().toString());
+                detailsModel.setDistrict(binding.city.getText().toString());
+                detailsModel.setState(binding.spinner2.toString());
+                detailsModel.setCountry(binding.ccp.getSelectedCountryName());
+                detailsModel.setZipcode(binding.zipCode.getText().toString());
                 personDetailViewModel.personDetails.postValue(detailsModel);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.flFragment,
