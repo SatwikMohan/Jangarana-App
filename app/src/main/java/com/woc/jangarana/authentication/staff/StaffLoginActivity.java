@@ -33,6 +33,9 @@ public class StaffLoginActivity extends AppCompatActivity {
 
     RequestQueue requestQueue;
     TextView staffId, password;
+    ProgressBar progressBar;
+    ImageButton imageButton;
+    int eye=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,24 @@ public class StaffLoginActivity extends AppCompatActivity {
 
         staffId = findViewById(R.id.staffID);
         password = findViewById(R.id.staffPassword);
+        
+        progressBar=findViewById(R.id.progressBarStaffLogin);
+
+        imageButton=findViewById(R.id.imageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(eye%2==0){
+                    eye++;
+                    imageButton.setImageResource(R.drawable.ic_baseline_remove_red_eye_24);
+                    password.setTransformationMethod(null);
+                }else{
+                    eye++;
+                    imageButton.setImageResource(R.drawable.ic_eye2);
+                    password.setTransformationMethod(new PasswordTransformationMethod());
+                }
+            }
+        });
 
 
         AppCompatButton button = findViewById(R.id.staff_login_button);
@@ -58,6 +79,7 @@ public class StaffLoginActivity extends AppCompatActivity {
                     password.setError("Enter password");
                 }
 
+                progressBar.setVisibility(View.VISIBLE);
                 userSignIn(id, pass);
             }
         });
@@ -87,10 +109,13 @@ public class StaffLoginActivity extends AppCompatActivity {
                     editor.putString("email",details.get("email").toString());
                     editor.commit();
 
+                    progressBar.setVisibility(View.GONE);
                     startActivity(new Intent(StaffLoginActivity.this, StaffDashboardActivity.class));
                     finish();
 
                 } catch (JSONException e) {
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(StaffLoginActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
@@ -99,6 +124,8 @@ public class StaffLoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("error", error.toString());
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(StaffLoginActivity.this, "Client Error", Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue = Volley.newRequestQueue(this);
