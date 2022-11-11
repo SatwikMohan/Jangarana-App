@@ -103,25 +103,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    <EditText-->
-<!--        android:id="@+id/staffPassword"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="40dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:ems="10"-->
-<!--        android:fontFamily="sans-serif"-->
-<!--        android:hint="Password"-->
-<!--        android:inputType="textPassword"-->
-<!--        android:minHeight="48dp"-->
-<!--        android:paddingLeft="10dp"-->
-<!--        android:textColor="@color/fill_text"-->
-<!--        android:textColorHint="@color/field_text"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/staffID"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/staffID" />-->
-
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
@@ -156,17 +137,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_census_2021_india" />
-
-<!--    <ImageButton-->
-<!--        android:id="@+id/imageButton"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/staffPassword"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/staffPassword"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/staffPassword"-->
-<!--        app:srcCompat="@drawable/ic_eye2"-->
-<!--        tools:ignore="SpeakableTextPresentCheck" />-->
 
     <ProgressBar
         android:id="@+id/progressBarStaffLogin"
