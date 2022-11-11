@@ -34,8 +34,6 @@ public class StaffLoginActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     TextView staffId, password;
     ProgressBar progressBar;
-    ImageButton imageButton;
-    int eye=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +44,6 @@ public class StaffLoginActivity extends AppCompatActivity {
         password = findViewById(R.id.staffPassword);
         
         progressBar=findViewById(R.id.progressBarStaffLogin);
-
-//         imageButton=findViewById(R.id.imageButton);
-//         imageButton.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 if(eye%2==0){
-//                     eye++;
-//                     imageButton.setImageResource(R.drawable.ic_baseline_remove_red_eye_24);
-//                     password.setTransformationMethod(null);
-//                 }else{
-//                     eye++;
-//                     imageButton.setImageResource(R.drawable.ic_eye2);
-//                     password.setTransformationMethod(new PasswordTransformationMethod());
-//                 }
-//             }
-//         });
-
 
         AppCompatButton button = findViewById(R.id.staff_login_button);
         button.setOnClickListener(new View.OnClickListener() {
